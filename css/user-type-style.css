@@ -1,0 +1,67 @@
+body{
+	overflow-x: hidden;
+}
+#wyloguj{
+	padding: 1vw 0.7vw;
+	text-align: center;
+	background-color: #05386B;
+	color: white;
+	font-size: 1.5vw;
+	font-family: 'Roboto', sans-serif;
+	margin-left: -10px;
+}
+#wyloguj:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.types{
+	position: absolute;
+	left: 0;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	background-color: #EDF5E1;
+	list-style: none;
+	font-size: 4vw;
+	text-align: center;
+	animation-name: panelIn;
+	animation-duration: 1s;
+}
+@keyframes panelIn{
+	0%{
+		right:-2000px;
+		opacity: 0;
+	}
+	100%{
+		right:0;
+		opacity: 1;
+	}
+}
+label{
+	transition: 0.3s;
+}
+label:hover{
+	font-size: 4.3vw;
+}
+.type-text{
+	padding-bottom: -105px;
+}
+.down{
+	font-size: 40%;
+}
+#about-list{
+	font-size: 25%;
+}
+#about-list li:before{
+	content: "-";
+}
+li p{
+	padding-top: 40px;
+	font-size: 80%;
+}
+@media (max-width: 970px){
+	#wyloguj{
+		margin:0; 
+		font-size: medium;
+	}
+}

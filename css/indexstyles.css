@@ -1,0 +1,154 @@
+/*header*/
+.header__buttons {
+    display: flex;
+    font-size: .6em;
+    margin-top: 1vh;
+}
+
+.header__button {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+}
+
+.header__button:hover {
+    text-decoration: underline;
+}
+
+.header__button--login {
+    color: #05386B;
+    padding: 1vh .9vw;
+    margin-right: 1vw;
+}
+
+.header__button--register {
+    background-color: #05386B;
+    color: #ffffff;
+    padding: 1vh 0.9vw;
+}
+
+/*main-content*/
+.main-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 3vw;
+    padding-top: 5vh;
+    width: 100vw;
+    flex-wrap: wrap;
+}
+
+.main-content__slider {
+    color: #EDF5E1;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 5px 5px 15px black;
+    line-height: 1.4em;
+    flex-basis: 50vw;
+    margin-top: 10vh;
+}
+
+/*forms*/
+.main-content__forms {
+    background-color: #EDF5E1;
+    padding: 4vh 2vw 3vh 2vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 20vw;
+}
+
+.main-content__form {}
+
+.main-content__title {
+    font-size: .6em;
+    color: #05386B;
+    padding-bottom: 3vh;
+    font-weight: bold;
+}
+
+.main-content__form--register {
+    display: none;
+}
+
+.main-content__form--login {
+    /*    display: none;*/
+}
+
+
+.main-content__input {
+    font-size: 1em;
+    text-decoration: none;
+    border: 1px solid rgba(128, 128, 128, 0.6);
+    margin-top: .3vw;
+}
+
+.main-content__input-field {
+    margin-bottom: 1vw;
+    font-size: .5em;
+    color: #05386B;
+}
+
+.main-content__submit {
+    padding: 1.5vh 1vw;
+    background-color: #05386B;
+    color: #ffffff;
+}
+
+.main-content__submit--register {
+    font-size: .8em;
+}
+
+.main-content__submit--login {
+    font-size: .4em;
+}
+
+.main-content__info-error {
+    font-size: .7em;
+    color: rgba(255, 0, 0, .8);
+    font-style: italic;
+}
+
+.main-content__info {
+    font-size: .3em;
+    color: green;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+
+    .main-content {
+        font-size: 7vw;
+        flex-direction: column;
+    }
+
+    .main-content__forms {
+        justify-content: center;
+        padding-top: 2vh;
+        flex-basis: auto;
+    }
+
+    .main-content__input-field {
+        margin-bottom: 2vh;
+        font-size: 1em;
+        color: #05386B;
+    }
+
+    .main-content__title {
+        font-size: 1.3em;
+        padding-bottom: 3vh;
+    }
+
+    .main-content__input {
+        width: 100%;
+    }
+
+    .main-content__input--terms {
+        width: auto;
+    }
+
+    .main-content__slider {
+        margin: 0;
+        margin-top: 5vh;
+    }
+
+}

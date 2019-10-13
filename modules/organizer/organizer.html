@@ -1,0 +1,74 @@
+<link rel="stylesheet" type="text/css" href="modules\organizer\organizer.css">
+<li class="module">
+    <div class="organizer">
+        <!--
+        <i class="settings-module-icon fa fa-gears">
+            <ul class="settings-module-options">
+                <li><input type="submit" value="Zamknij"></li>
+            </ul>
+        </i>
+-->
+        <h3 id="monthAndYear"></h3>
+        <table class="table-border" id="calendar">
+            <thead>
+                <tr class="table-border__week-days">
+                    <th>Pon</th>
+                    <th>Wto</th>
+                    <th>Śro</th>
+                    <th>Czw</th>
+                    <th>Pią</th>
+                    <th>Sob</th>
+                    <th>Nie</th>
+                </tr>
+            </thead>
+
+            <tbody id="calendar-body">
+
+            </tbody>
+        </table>
+
+        <div class="form-inline">
+
+            <button class="previous" id="previous" onclick="previous()">Poprzedni</button>
+            <button class="todayB" id="todayButton" onclick="todayButton()">Dziś</button>
+            <button class="next" id="next" onclick="next()">Następny</button>
+        </div>
+        <br />
+        <form class="form-inline">
+            <span class="lead" for="month">Skocz do: </span>
+            <select class="form-control" name="month" id="month" onchange="jump()">
+                <option value=0>Styczeń</option>
+                <option value=1>Luty</option>
+                <option value=2>Marzec</option>
+                <option value=3>Kwiecień</option>
+                <option value=4>Maj</option>
+                <option value=5>Czerwiec</option>
+                <option value=6>Lipiec</option>
+                <option value=7>Sierpień</option>
+                <option value=8>Wrzesień</option>
+                <option value=9>Październik</option>
+                <option value=10>Listopad</option>
+                <option value=11>Grudzień</option>
+            </select>
+
+
+            <label for="year"></label>
+            <select class="form-control" name="year" id="year" onchange="jump()">
+                <option value=2018>2018</option>
+                <option value=2019>2019</option>
+                <option value=2020>2020</option>
+                <option value=2021>2021</option>
+                <option value=2022>2022</option>
+                <option value=2023>2023</option>
+                <option value=2024>2024</option>
+                <option value=2025>2025</option>
+                <option value=2026>2026</option>
+                <option value=2027>2027</option>
+                <option value=2028>2028</option>
+                <option value=2029>2029</option>
+                <option value=2030>2030</option>
+            </select>
+        </form>
+    </div>
+</li>
+<script type="text/javascript" src="modules\organizer\organizer.js"></script>

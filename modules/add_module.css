@@ -1,0 +1,18 @@
+.add_module_list {
+    position: fixed;
+    background-color: white;
+    padding: 20px;
+    width: 25%;
+    top: 0;
+    margin: 10% 40% !important;
+    color: #05386B;
+    border: 3px solid #379683;
+    border-radius: 3px;
+    z-index: 2;
+    list-style-type: none;
+    display: none;
+}
+
+#add_module_button {
+    background-color: #05386B;
+}

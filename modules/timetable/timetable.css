@@ -1,0 +1,44 @@
+.n,
+.s {
+    display: none;
+}
+
+.timetable {
+    position: relative;
+    background-color: #004c98;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timetable::before {
+    content: "*ALPHA";
+    right: 0;
+    position: absolute;
+}
+
+.timetable__lesson-plan {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    font-size: 1.5vw;
+}
+
+.timetable__branchselect {
+    background-color: #0080ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2vw;
+}
+
+.timetable__link {
+    background-color: #0080ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.5em;
+}

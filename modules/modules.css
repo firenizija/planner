@@ -1,0 +1,80 @@
+.moduleContainer {}
+
+.moduleContainer__list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: hidden;
+    list-style-type: none;
+    justify-content: space-between;
+
+}
+
+.moduleContainer__add-module {
+    border: 10px solid rgba(0, 0, 0, .1);
+    border-radius: 15px;
+    padding: 9vw;
+    font-size: 5vw;
+    background-color: rgba(0, 0, 0, .1);
+    text-align: center;
+    opacity: .8;
+    flex-basis: 45vw;
+    margin: auto;
+}
+
+.moduleContainer__add-module:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.moduleContainer__add-plus {
+    filter: invert(10%);
+}
+
+.module {
+    flex-basis: 45vw;
+    border: 10px solid rgba(0, 0, 0, .1);
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, .1);
+    text-align: center;
+    margin: 3vw auto;
+}
+
+/*add event form bg*/
+.graybg {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgb(128, 128, 128, 0.8);
+}
+
+.settings-module-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+}
+
+.settings-module-icon:hover {
+    cursor: pointer;
+}
+
+.settings-module-icon:hover .settings-module-options {
+    display: block;
+}
+
+.settings-module-options {
+    position: absolute;
+    right: 1%;
+    padding-top: 10px;
+    list-style-type: none;
+    display: none;
+}
+
+.settings-module-options:hover {
+    text-decoration: underline;
+}

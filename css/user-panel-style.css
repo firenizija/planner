@@ -1,0 +1,87 @@
+@keyframes bgstars {
+    0% {
+        background: #5CDB95;
+    }
+
+    100% {
+        background: #00182f;
+    }
+}
+
+body {
+    animation: bgstars 2s 1 forwards;
+
+}
+
+.header__user {
+    position: absolute;
+    margin: .5vw;
+    text-shadow: 2px 2px 5px black;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 0 6px;
+    font-size: .7em;
+    z-index: 999;
+    right: 0;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.header__user:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-shadow: none;
+    color: #05386B;
+}
+
+.header__user-list {
+    list-style: none;
+}
+
+.header__welcome-user {
+    position: relative;
+}
+
+.header__user-list:hover .header__welcome-user::before {
+    content: "";
+    position: absolute;
+    bottom: -0.5vh;
+    width: 100%;
+    border: 1px solid rgba(20, 0, 128, 0.10);
+    border-radius: 50px;
+
+}
+
+.header__icon {}
+
+.header__user-option {
+    display: none;
+}
+
+.header__user-options {
+    transform: translateY(-100px);
+    color: #05386B;
+    text-shadow: none;
+    transition: 0.2s;
+}
+
+.header__user-list:hover .header__user-options {
+    position: inherit;
+    transform: none;
+}
+
+.header__user-option--account-settings {}
+
+.header__line {}
+
+.header__user-option:hover {
+    text-decoration: underline;
+}
+
+.header__user-option--logout {}
+
+/*hide gray bg at start*/
+.graybg,
+#addEvent {
+    display: none;
+}

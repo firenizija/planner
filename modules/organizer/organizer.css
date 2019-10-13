@@ -1,0 +1,160 @@
+/*CALENDAR*/
+/*
+*/
+/*today*/
+/*organizer body*/
+.organizer {
+    background-color: #05386B;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 0 5vh;
+    font-size: 3vh;
+}
+
+.table-border__week-days {
+    font-size: .8em;
+    background-color: #00468b;
+}
+
+.today {
+    background-color: #0081ff;
+    font-weight: bold;
+}
+
+/*cell day*/
+.days {
+    position: relative;
+    padding: .5vh 0;
+    font-size: .7em;
+}
+
+.days:hover {
+    background-color: #004c98;
+}
+
+
+/*go to next/previous/today - buttons*/
+.next,
+.previous,
+.todayB {
+    background-color: #005fbc;
+    border: none;
+    color: white;
+    padding: .5vw 1vw;
+}
+
+/*go to today-button*/
+.todayB {
+    background-color: #003972;
+    border: 1px solid #002f5d;
+}
+
+/*calendar inline*/
+.form-inline {
+    margin: 15px auto;
+}
+
+.lead,
+.form-control {
+    font-size: .7em;
+}
+
+.form-control {
+    background-color: #00468b;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+/*top title calendar month-year*/
+#monthAndYear {
+    margin: 10px 0 20px 0;
+    color: #ffffff;
+    flex-basis: 100%;
+    font-size: 1em;
+}
+
+/*tag in row calendar*/
+.tag {
+    text-shadow: 1px 1px 10px black;
+}
+
+.table-border {
+    /*    border: 1px double white;*/
+}
+
+
+/*calendar table*/
+.table-border table,
+th.days,
+td.days,
+tr.days {
+    color: #ffffff;
+    background-color: #0057af;
+}
+
+#calendar-body {
+    border-collapse: collapse;
+}
+
+/*close 'add event form' button*/
+.closeEventForm {
+    float: right;
+}
+
+.closeEventForm:hover {
+    cursor: pointer;
+}
+
+/*open add event form button in calendar day row*/
+.addEventButton {
+    float: right;
+}
+
+.addEventButton:hover {
+    cursor: pointer;
+}
+
+/*hover display tooltip with event data*/
+.fa-tag:hover .eventData {
+    display: block;
+}
+
+/*event info on hover tag*/
+.eventData {
+    position: absolute;
+    background-color: white;
+    display: none;
+    z-index: 1;
+    border: 1px solid black;
+    padding: 3px;
+    font-family: 'Roboto', sans-serif;
+    color: #05386B;
+    text-shadow: none;
+}
+
+/*ADD EVENT FORM*/
+/*
+*/
+/*title text in add event form*/
+.addEventForm #title-text {
+    padding: 0 auto;
+}
+
+/*add event form window*/
+.addEventForm {
+    position: fixed;
+    background-color: white;
+    padding: 20px;
+    width: 25%;
+    top: 0;
+    margin: 10% 40% !important;
+    color: #05386B;
+    border: 3px solid #379683;
+    border-radius: 3px;
+    z-index: 2;
+}
