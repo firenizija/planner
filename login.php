@@ -2,8 +2,8 @@
 $config= require_once 'config.php';
 $conn = new mysqli($config['host'],$config['user'],$config['password'],$config['database']);
 session_start();
+$_SESSION["status"]=0;//status: 0-nothing 4-signed 5-not logged in
 $_SESSION["key"]=bin2hex(openssl_random_pseudo_bytes(4));
-$_SESSION["incorrectDataLogin"]=false;
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -42,9 +42,8 @@ if (isset($_POST['loginbutton']))
 
         }
 
-        $_SESSION["incorrectDataLogin"]=false;
+        $_SESSION["status"]=4;
         //User Data
-        $_SESSION['zalogowany'] = true;
         $_SESSION['login'] = $login;
         echo "Zalogowano pomyślnie: $login <br />";
         if ($firstLogin==true) {
@@ -56,8 +55,7 @@ if (isset($_POST['loginbutton']))
     }
     else{
         echo "Wpisano złe dane.";
-        $_SESSION['zalogowany']= false;
-        $_SESSION["incorrectDataLogin"]=true;
+        $_SESSION["status"]=5;
         header("Location: index.php");
     }
 }

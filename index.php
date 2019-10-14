@@ -4,32 +4,29 @@
 <head>
     <meta charset="utf-8">
     <?php
-		session_start();//start sesji
-		if (isset($_SESSION['login'])&&$_SESSION['login']!=""&&isset($_SESSION['zalogowany'])&&$_SESSION['zalogowany']==true) {
+		session_start();
+		if (isset($_SESSION['login'])&&$_SESSION['login']!=""&&isset($_SESSION["status"])&&$_SESSION["status"]==4) {
 			header("Location: user-panel.php"); // if user is logged go to user-panel end end this code
 			exit();
 		}
-		if (isset($_SESSION["accountSuccessfulLogin"])) {
-			$loginERROR=$_SESSION["accountSuccessfulLogin"];//if user login is exit from register.php
-		}
-		else $loginERROR=false;
-		if (isset($_SESSION["accountSuccessfulPassword"])) {
-			$passwordERROR=$_SESSION["accountSuccessfulPassword"];//if passwords are not the same from register.php
-		}
-		else $passwordERROR=false;
-		if (isset($_SESSION["accountSuccessful"])) {
-			$registerSuccessful=$_SESSION["accountSuccessful"];//if register is done from register.php
-		}
-		else $registerSuccessful=false;
-		if (isset($_SESSION["incorrectDataLogin"])) {
-			$incorrectLogin=$_SESSION["incorrectDataLogin"];//if login is gone wrong
-		}
-		else $incorrectLogin=false;
+    
+        if(isset($_SESSION["status"])){
+            $status=$_SESSION["status"];
+        }
+        else{
+            $_SESSION["status"]=0;
+            $status=0;
+        }
 
-		if ($registerSuccessful==true) {
-			$passwordERROR=false;//if register success set falses on errors
-			$loginERROR=false;
-		}
+if (isset($_SESSION["incorrectDataLogin"])) {
+$incorrectLogin=$_SESSION["incorrectDataLogin"];//if login is gone wrong
+}
+else $incorrectLogin=false;
+
+if ($status==1) {
+$passwordERROR=false;//if register success set falses on errors
+$loginERROR=false;
+}
 		?>
     <title>PLAnNER</title>
     <!--BG&Font Style-->
@@ -68,7 +65,7 @@
                     <label class="main-content__input-label">
                         Nazwa użytkownika:
                         <input class="main-content__input main-content__input--username" type="text" name="username" value="<?php if(isset($_SESSION["loginInput"])){echo $_SESSION["loginInput"];} ?>" placeholder="login" maxlength="20" required>
-                        <?php if($loginERROR==true){echo "<span class='main-content__info-error' id='errorfromPHP'><br />Podany login jest zajęty</span>";} ?>
+                        <?php if($status==3){echo "<span class='main-content__info-error' id='errorfromPHP'><br />Podany login jest zajęty</span>";} ?>
                         <span class="main-content__info-error main-content__info-error--login"></span>
                     </label>
                 </div>
@@ -91,13 +88,13 @@
                         Powtórz hasło:
                         <input class="main-content__input main-content__input--repassword" type="password" name="repassword" placeholder="•••••" maxlength="30" required>
                         <span class="main-content__info-error main-content__info-error--repassword"></span>
-                        <?php if($passwordERROR==true){echo "<span class='main-content__info-error' id='errorfromPHP'><br />Podane hasła nie są identyczne</span>";} ?>
+                        <?php if($status==2){echo "<span class='main-content__info-error' id='errorfromPHP'><br />Podane hasła nie są identyczne</span>";} ?>
                     </label>
                 </div>
                 <div class="main-content__input-field">
                     <label class="main-content__input-label">
                         Przeczytałem regulamin:
-                        <input class="main-content__input main-content__input--terms" type="checkbox" name="terms" <?php if(isset($_SESSION["loginInput"])){echo 'checked';} ?>>
+                        <input class="main-content__input main-content__input--terms" type="checkbox" name="terms" <?php if($status==2||$status==3){echo 'checked';} ?>>
                         <span class="main-content__info-error main-content__info-error--terms"></span>
                     </label>
                 </div>
@@ -125,7 +122,7 @@
                 </div>
                 <input class="main-content__submit main-content__submit--login submitbutton login" type="submit" name="loginbutton" value="Zaloguj">
                 <span class="main-content__info"></span>
-                <?php if($incorrectLogin==true){echo "<span class='main-content__info-error'><br />Błędny login lub hasło</span>";} ?>
+                <?php if($status==5){echo "<span class='main-content__info-error'><br />Błędny login lub hasło</span>";} ?>
             </form>
         </section>
     </main>
@@ -135,10 +132,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="js\valid.js"></script>
     <script type="text/javascript">
-        //Register success
-        var registerSuccessful = "<?php echo $registerSuccessful ?>";
-        //Register error
-        var incorrectLoginData = "<?php echo $incorrectLogin ?>";
+        var status = <?php echo $status ?>
 
     </script>
     <!-- BG particles -->
@@ -147,19 +141,10 @@
     <script type="text/javascript" src="js\switch-form.js"></script>
 </body>
 <?php
-		if (isset($_SESSION["accountSuccessfulLogin"])) {
-			session_unset($_SESSION["accountSuccessfulLogin"]);	//		CLEAR
-		}
-		if (isset($_SESSION["accountSuccessfulPassword"])) {
-			session_unset($_SESSION["accountSuccessfulPassword"]);	//		SESSION
-		}
-		if (isset($_SESSION["accountSuccessful"])) {
-			session_unset($_SESSION["accountSuccessful"]);	//			DATA
-		}
-		if (isset($_SESSION["incorrectDataLogin"])) {
-			session_unset($_SESSION["incorrectDataLogin"]);
-		}
-		?>
+    if($status!=4){
+        unset($_SESSION["status"]);
+    }
+    ?>
 
 </html>
 <!--
@@ -168,6 +153,4 @@
 -Aktualizacja logowania zakazanie znaków tak jak jest to w rejestracji
 -Czerwone pola tam gdzie błąd i znikający napis błędu po button down
 -na iphone nie działa pole włączyć select na inputach
--fix <li> in triangles
--LOGIN WPISANY PO REJESTRACJI
 -naprawić php login i register zrobić funkcję i ogarnąć można wejść do login tak oo ...;-; przez jquery

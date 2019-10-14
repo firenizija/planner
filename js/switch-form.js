@@ -19,11 +19,11 @@ $('.header__button--login').click(() => switchForm("login"));
 $('.header__button--register').click(() => switchForm("register"));
 
 //Switch when register success/login fail
-if (registerSuccessful == true) {
+if (status == "2" || status == "3") {
     $('.main-content__info').html("<br />Rejestracja przebiegła pomyślnie!");
-    switchForm("login");
-}
-if (incorrectLoginData == true) {
     switchForm("register");
+}
+if (status == "1") {
+    switchForm("login");
 }
 $('body').fadeIn('1000'); //Transition in page (default hidden in index-style.css) EXPORT THIS!

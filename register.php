@@ -4,9 +4,7 @@ $config= require_once 'config.php';
 $conn = new mysqli($config['host'],$config['user'],$config['password'],$config['database']);
 //Sesja validacji poprawności danych
 session_start();
-$_SESSION["accountSuccessful"]=false;
-$_SESSION["accountSuccessfulLogin"]=false;
-$_SESSION["accountSuccessfulPassword"]=false;
+$_SESSION["status"]=0;//status: 0-nothing 1-register successfully 2-wrong password 3-busy login
 $_SESSION["loginInput"]=$_POST["username"];
 $_SESSION["emailInput"]=$_POST["email"];
 // Check connection
@@ -36,7 +34,7 @@ if (strlen(filtruj($_POST['username']))>2&&strlen(filtruj($_POST['username']))<2
 		    $email = filtruj($_POST['email']);
 		    $ip = filtruj($_SERVER['REMOTE_ADDR']);
 
-		    // sprawdzamy czy login nie jest już w bazie
+		    // czy login nie jest już w bazie
 		    if (mysqli_num_rows(mysqli_query($conn, "SELECT login FROM users WHERE login = '".$login."';")) == 0)
 		    {
 		        if ($haslo1 == $haslo2) // sprawdzamy czy hasła takie same
@@ -45,17 +43,20 @@ if (strlen(filtruj($_POST['username']))>2&&strlen(filtruj($_POST['username']))<2
 		                VALUES ('".$login."', '".md5($haslo1)."', '".$email."', '".time()."', '0', '".$ip."');");
 
 		            echo "Konto zostało utworzone!";
-		            $_SESSION["accountSuccessful"]=true;
+                    $_SESSION["status"]=1;
+//		            $_SESSION["accountSuccessful"]=true;
 
 		        }
 		        else{
 			        echo "Hasła nie są takie same";
-			        $_SESSION["accountSuccessfulPassword"]=true;
+                    $_SESSION["status"]=2;
+//			        $_SESSION["accountSuccessfulPassword"]=true;
 		        }
 		    }
 		    else {
 			    echo "Podany login jest już zajęty.";
-			    $_SESSION["accountSuccessfulLogin"]=true;
+                $_SESSION["status"]=3;
+//			    $_SESSION["accountSuccessfulLogin"]=true;
 		    }
 		}
 	}

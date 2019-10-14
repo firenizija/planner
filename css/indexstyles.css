@@ -103,7 +103,7 @@
 }
 
 .main-content__info-error {
-    font-size: .7em;
+    font-size: 1.3vw;
     color: rgba(255, 0, 0, .8);
     font-style: italic;
 }
