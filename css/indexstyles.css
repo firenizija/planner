@@ -114,6 +114,17 @@
     font-weight: bold;
 }
 
+.slideDown {
+    font-size: 15vh;
+    position: absolute;
+    bottom: 0;
+    left: 47vw;
+}
+
+.articles {
+    margin-top: 55vh;
+}
+
 @media (max-width: 768px) {
 
     .main-content {
